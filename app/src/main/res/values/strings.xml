@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TechAstral-Loc</string>
+    <string name="new_user_sign_up_here">New User? Sign up here</string>
+    <string name="open">Open Navigation drawer</string>
+    <string name="close">Close Navigation drawer</string>
+</resources>
