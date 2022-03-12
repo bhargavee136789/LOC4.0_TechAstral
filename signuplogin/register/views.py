@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, status, views, permissions
-from .serializers import RegisterSerializer, EventDetailSerializer,CrowdFundingDetailSerializer,LoginSerializer,ngo_admindata, admindata,NGORegisterSerializer, NGOLoginSerializer,NGODetailSerializer
+from .serializers import RegisterSerializer, EventDetailSerializer,FundingSerializer,CrowdFundingDetailSerializer,LoginSerializer,ngo_admindata, admindata,NGORegisterSerializer, NGOLoginSerializer,NGODetailSerializer
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import *
@@ -162,3 +162,19 @@ class CrowdFundingDetailsView(APIView):
         d=CrowdFundingDetails.objects.all()  
         serializer=CrowdFundingDetailSerializer(d,many=True)
         return Response(serializer.data)
+
+
+class FundingView(APIView):
+    serializer_class = FundingSerializer
+    def post(self, request):
+        Detail_serializer=FundingSerializer(data=request.data)
+        if Detail_serializer.is_valid():
+            Detail_serializer.save()
+            return Response(Detail_serializer.data,status=status.HTTP_201_CREATED)
+        else:
+            return Response(Detail_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    # def get(self,request):
+    #     d=CrowdFundingDetails.objects.all()  
+    #     serializer=CrowdFundingDetailSerializer(d,many=True)
+    #     return Response(serializer.data)

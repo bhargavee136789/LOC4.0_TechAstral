@@ -14,4 +14,5 @@ admin.site.register(NGODetails)
 admin.site.register(EventDetails)
 admin.site.register(CrowdFundingDetails)
 admin.site.register(ngo_admin_reg)
+admin.site.register(Funding)
 

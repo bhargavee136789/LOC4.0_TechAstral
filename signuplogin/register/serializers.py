@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User,admin_reg,ngo_admin_reg,NGODetails,CrowdFundingDetails
+from .models import Funding, User,admin_reg,ngo_admin_reg,NGODetails,CrowdFundingDetails
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
@@ -202,4 +202,12 @@ class EventDetailSerializer(serializers.ModelSerializer):
 class CrowdFundingDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model= CrowdFundingDetails
+        fields="__all__"
+
+class FundingSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        return Funding.objects.create(**validated_data)
+
+    class Meta:
+        model=Funding
         fields="__all__"

@@ -62,31 +62,11 @@ class admin_reg(models.Model):
     phone=models.CharField(max_length=255,default='')
     area=models.CharField(max_length=1255,default='')
     pincode=models.CharField(max_length=255,default='')
-    # area=models.TextField(max_length=225,default='')
-# class admin_reg(models.Model):
-#     email = models.EmailField(max_length=255,unique=True)
-#     username = models.CharField(max_length=255,unique=True)
-#     password = models.CharField(max_length=255,default='')
-#     # phone=models.CharField(max_length=255)
-#     # area=models.CharField(max_length=1255)
-#     # pincode=models.CharField(max_length=255)
+
     def __Str__(self):
         return self.username
-# class relative(models.Model):
-#     email= models.EmailField(max_length=255,unique=True)
-#     name= models.CharField(max_length=255,default='')
-#     username = models.CharField(max_length=255,unique=True)
-#     password = models.CharField(max_length=255)
-#     phone = models.CharField(max_length=255,default='')
-#     document = models.FileField(default='')
-#     def __Str__(self):
-#         return self.name
-#     def tokens(self):
-#         refresh = RefreshToken.for_user(self)
-#         return {
-#             'refresh': str(refresh),
-#             'access': str(refresh.access_token)
-#         }
+
+
 class ngo_admin_reg(models.Model):
     email = models.EmailField(max_length=255,unique=True)
     username = models.CharField(max_length=255,unique=True)
@@ -107,10 +87,36 @@ class NGODetails(models.Model):
     desc=models.TextField(max_length=1000)
     achievement=models.TextField(max_length=1000)
 
+class Funding(models.Model):
+    name=models.CharField(max_length=25)
+    amt=models.CharField(max_length=23)
+# EVENT_TYPES=[{'volunteer','volunteer'},{'funding','funding'}]
 
+# class EventDetails(models.Model):
+#     name=models.CharField(max_length=25)
+#     date=models.DateField()
+#     location=models.TextField(max_length=1000)
+#     type1=models.CharField(max_length=1000,choices=EVENT_TYPES)
+#     desc=models.TextField(max_length=1000)
+
+# class VolunteerEventDetails(models.Model):
+#     mainevent=models.ForeignKey(EventDetails)
+#     time=models.CharField(max_length=10)
+#     reqdppl=models.IntegerField()
+#     deadline=models.CharField(max_length=225,default='')
+
+# class CrowdFundingDetails(models.Model):
+#     mainevent=models.ForeignKey(EventDetails)
+#     starttime=models.CharField(max_length=10)
+#     endtime=models.CharField(max_length=10)
+#     reqdamt=models.IntegerField()
+
+# class volunteer(models.Model):
+#     event=models.ForeignKey(EventDetails)
+#     username=models.CharField()
 class EventDetails(models.Model):
     name=models.CharField(max_length=25)
-    date=models.CharField(max_length=10)
+    date=models.DateField(max_length=10)
     time=models.CharField(max_length=10)
     location=models.TextField(max_length=1000)
     type1=models.TextField(max_length=1000)
@@ -120,7 +126,7 @@ class EventDetails(models.Model):
 
 class CrowdFundingDetails(models.Model):
     name=models.CharField(max_length=25)
-    date=models.CharField(max_length=10)
+    date=models.DateField(max_length=10)
     starttime=models.CharField(max_length=10)
     location=models.TextField(max_length=1000)
     type1=models.TextField(max_length=1000)

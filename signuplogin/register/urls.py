@@ -1,6 +1,6 @@
 from django.urls import path
 from .import views 
-from .views import RegisterView,  LoginAPIView,NGORegisterView,NGOLoginAPIView,NGODetailsView,EventDetailsView,CrowdFundingDetailsView
+from .views import RegisterView,  LoginAPIView,FundingView,NGORegisterView,NGOLoginAPIView,NGODetailsView,EventDetailsView,CrowdFundingDetailsView
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
@@ -14,6 +14,7 @@ urlpatterns = [
     # path('relativedata/',relativedata.as_view(),name="relativedata"),
     path('NGODetails',NGODetailsView.as_view(),name='NGODetails'),
     path('EventDetails/',EventDetailsView.as_view(),name='EventDetails'),
+    path('Funding/',FundingView.as_view(),name='Funding'),
     path('CrowdFundingDetails/',CrowdFundingDetailsView.as_view(),name='CrowdundDetails'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('review',views.create,name='review')
