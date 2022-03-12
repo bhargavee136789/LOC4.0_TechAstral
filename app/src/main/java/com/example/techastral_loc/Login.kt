@@ -5,14 +5,8 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.techastral_loc.MainActivity
-import com.example.techastral_loc.R
-import com.example.techastral_loc.RetrofitApi
 import com.example.techastral_loc.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,7 +26,7 @@ class Login : AppCompatActivity() {
 
         val token = pref.getString("token",null)
         if(!token.isNullOrEmpty()){
-           val intent = Intent(this, MainActivity::class.java)
+           val intent = Intent(this, Voluntering::class.java)
            startActivity(intent)
            finish()
         }
@@ -93,7 +87,7 @@ class Login : AppCompatActivity() {
                     override fun onResponse(call: Call<logData>, response: Response<logData>) {
                         if(response.code() == 200){
                             Toast.makeText(this@Login,"Welcome",Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@Login,MainActivity::class.java)
+                            val intent = Intent(this@Login,Voluntering::class.java)
                             Log.d("log in data",response.body()!!.email.toString())
                             editor.putString("token",response.body()!!.tokens.toString())
                             editor.putString("email",response.body()!!.email.toString())
