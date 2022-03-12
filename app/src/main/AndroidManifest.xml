@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.techastral_loc">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TechAstralLoc">
         <activity
-            android:name=".MainActivity"
+            android:name=".fund"
+            android:exported="false" />
+        <activity
+            android:name=".detail_volunter"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Voluntering"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".detail_fund"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

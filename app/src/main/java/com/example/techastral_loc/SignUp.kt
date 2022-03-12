@@ -24,6 +24,8 @@ class SignUp : AppCompatActivity() {
     lateinit var password:EditText
     lateinit var email:EditText
     lateinit var phone:EditText
+    lateinit var pincode:EditText
+    lateinit var area:EditText
 
     lateinit var binding: ActivitySignUpBinding
     val baseUrl = "http://shrutiprasad.pythonanywhere.com/"
@@ -34,26 +36,25 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         signUp = binding.signBtn
-        fName = binding.fName
-        lName = binding.lName
-        userName = binding.signUsername
+        userName = binding.signFullname
         password = binding.signPassword
         email = binding.signEmail
         phone = binding.pNumber
+        pincode = binding.pincode
+        area = binding.area
 
         signUp.setOnClickListener {
             regsiter()
         }
 
-        if(savedInstanceState!=null){
+        if(savedInstanceState!=null) {
             binding.signEmail.setText(savedInstanceState.getString("signEmail"))
             binding.signPassword.setText(savedInstanceState.getString("signPassword"))
-            binding.signUsername.setText(savedInstanceState.getString("signUsername"))
+            binding.signFullname.setText(savedInstanceState.getString("signUsername"))
             binding.pNumber.setText(savedInstanceState.getString("pNumber"))
-            binding.fName.setText(savedInstanceState.getString("fName"))
-            binding.lName.setText(savedInstanceState.getString("lName"))
+            binding.pincode.setText(savedInstanceState.getString("pincode"))
+            binding.area.setText(savedInstanceState.getString("area"))
         }
-
     }
 
     fun regsiter(){
@@ -70,12 +71,12 @@ class SignUp : AppCompatActivity() {
                 .create(RetrofitApi::class.java)
 
             val rData = registerData(
-//                fName.text.toString(),
-//                lName.text.toString(),
                 userName.text.toString(),
                 email.text.toString(),
-//                phone.text.toString(),
-                password.text.toString()
+                phone.text.toString(),
+                password.text.toString(),
+                pincode.text.toString(),
+                area.text.toString()
             )
 
             val rRequest = rf.register(rData)
@@ -115,17 +116,15 @@ class SignUp : AppCompatActivity() {
 
             })
         }
-
-
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
         outState.putString("signEmail",binding.signEmail.text.toString())
         outState.putString("signPassword",binding.signPassword.text.toString())
-        outState.putString("signUsername",binding.signUsername.text.toString())
+        outState.putString("signUsername",binding.signFullname.text.toString())
         outState.putString("pNumber",binding.pNumber.text.toString())
-        outState.putString("fName",binding.fName.text.toString())
-        outState.putString("lName",binding.lName.text.toString())
+        outState.putString("pincode",binding.pincode.text.toString())
+        outState.putString("area",binding.area.text.toString())
     }
 }
