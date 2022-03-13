@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const Navbar = () => {
+const NavbarOne = () => {
   return (
     <>
       <div>
@@ -27,7 +26,7 @@ const Navbar = () => {
                 Pricing
               </a> */}
             </nav>
-            <Link to="/login">
+            {/* <Link to="/login">
               <button className="text-xl inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded  mt-4 md:mt-0">
                 Login
               </button>
@@ -36,8 +35,8 @@ const Navbar = () => {
               <button className="inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded text-xl mt-4 md:mt-0">
                 Register
               </button>
-            </Link>
-            {/* <Link to="/upload">
+            </Link> */}
+            <Link to="/upload">
               <button className="inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded text-xl mt-4 md:mt-0">
                 Upload
               </button>
@@ -51,7 +50,7 @@ const Navbar = () => {
               <button className="inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded text-xl mt-4 md:mt-0">
                 Volunteer
               </button>
-            </Link> */}
+            </Link>
           </div>
         </header>
       </div>
@@ -59,4 +58,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarOne;
