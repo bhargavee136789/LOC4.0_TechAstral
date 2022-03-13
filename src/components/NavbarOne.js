@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const Navbar = () => {
+const NavbarOne = () => {
   return (
     <>
       <div>
@@ -11,7 +10,7 @@ const Navbar = () => {
               className="flex title-font font-medium items-center mb-4 md:mb-0"
               href="/"
             >
-              <span className="ml-3 text-xl">Mission Minded</span>
+              <span className="ml-3 text-xl"></span>
             </a>
             <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-xl justify-center">
               {/* <a className="ml-12 mr-12 hover:text-rose-400" href="/">
@@ -27,7 +26,7 @@ const Navbar = () => {
                 Pricing
               </a> */}
             </nav>
-            <Link to="/login">
+            {/* <Link to="/login">
               <button className="text-xl inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded  mt-4 md:mt-0">
                 Login
               </button>
@@ -36,8 +35,8 @@ const Navbar = () => {
               <button className="inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded text-xl mt-4 md:mt-0">
                 Register
               </button>
-            </Link>
-            {/* <Link to="/upload">
+            </Link> */}
+            <Link to="/upload">
               <button className="inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded text-xl mt-4 md:mt-0">
                 Upload
               </button>
@@ -51,7 +50,7 @@ const Navbar = () => {
               <button className="inline-flex items-center border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded text-xl mt-4 md:mt-0">
                 Volunteer
               </button>
-            </Link> */}
+            </Link>
           </div>
         </header>
       </div>
@@ -59,4 +58,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarOne;
