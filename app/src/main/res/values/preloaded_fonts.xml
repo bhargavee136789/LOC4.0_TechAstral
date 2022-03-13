@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/alata</item>
         <item>@font/anonymous_pro</item>
         <item>@font/anonymous_pro_bold</item>
+        <item>@font/bitter</item>
+        <item>@font/bitter_bold</item>
     </array>
 </resources>

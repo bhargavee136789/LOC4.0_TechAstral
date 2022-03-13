@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_margin="20dp"
-        android:background="@drawable/back1"
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="120dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/back1"
         android:backgroundTint="#C0D6DA"
+        android:padding="10dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,31 +28,31 @@
                 android:layout_alignStart="@+id/textorg"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="12dp"
-                android:hint="Date : "
+                android:hint="Location : "
                 android:textColorHint="@color/black"
                 android:textSize="15dp" />
 
             <TextView
-                android:id="@+id/eventDate"
+                android:id="@+id/ngoLoc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textorg"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:layout_toEndOf="@+id/textDate"
-                android:hint="Date"
+                android:hint="Location"
                 android:textColorHint="@color/black"
                 android:textSize="15dp" />
 
             <TextView
-                android:id="@+id/eventName"
+                android:id="@+id/ngoName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="13dp"
                 android:layout_marginTop="10dp"
-                android:hint="Name of the event"
+                android:hint="Name of the Ngo"
                 android:textColorHint="@color/black"
                 android:textSize="25dp" />
 
@@ -60,23 +60,23 @@
                 android:id="@+id/textorg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/eventName"
-                android:layout_alignStart="@+id/eventName"
+                android:layout_below="@+id/ngoName"
+                android:layout_alignStart="@+id/ngoName"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="12dp"
-                android:text="Description : "
+                android:text="Moto : "
                 android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <TextView
-                android:id="@+id/eventDesc"
+                android:id="@+id/ngoMoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/eventName"
+                android:layout_below="@+id/ngoName"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:layout_toEndOf="@+id/textorg"
-                android:hint="Description"
+                android:hint="Moto"
                 android:textColorHint="@color/black"
                 android:textSize="16dp" />
 

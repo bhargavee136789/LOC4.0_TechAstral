@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:backgroundTint="@color/black"
+    android:background="@drawable/bg1"
     tools:context=".SignUp">
 
 
@@ -13,63 +12,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:fontFamily="@font/alata"
+            android:text="Mission Minded"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.435"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="157dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:text="Pollux"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="40dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.453"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.038" />
 
         <androidx.cardview.widget.CardView
-            android:backgroundTint="@color/white"
-            android:layout_width="370dp"
+            android:layout_width="310dp"
             android:layout_height="600dp"
-            android:layout_below="@+id/appBar"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="20dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
+            android:backgroundTint="#C0D6DA"
             app:cardBackgroundColor="#B89D74"
-            android:layout_marginTop="25dp"
             app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBar">
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -82,7 +56,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/back1"
                     android:ems="10"
-                    android:fontFamily="@font/anonymous_pro"
+                    android:fontFamily="@font/alata"
                     android:hint="Phone number"
                     android:inputType="number"
                     android:paddingLeft="20dp"
@@ -101,9 +75,9 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/back1"
                     android:ems="10"
-                    android:fontFamily="@font/anonymous_pro"
+                    android:fontFamily="@font/alata"
+                    android:inputType="text"
                     android:hint="Area"
-                    android:inputType="number"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:textColor="@color/black"
@@ -120,7 +94,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/back1"
                     android:ems="10"
-                    android:fontFamily="@font/anonymous_pro"
+                    android:fontFamily="@font/alata"
                     android:hint="Pincode"
                     android:inputType="number"
                     android:paddingLeft="20dp"
@@ -139,8 +113,8 @@
                     android:layout_marginTop="30dp"
                     android:background="@drawable/back1"
                     android:ems="10"
+                    android:fontFamily="@font/alata"
                     android:hint="Email"
-                    android:fontFamily="@font/anonymous_pro"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
@@ -158,9 +132,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/back1"
                     android:ems="10"
+                    android:fontFamily="@font/alata"
                     android:hint="Password"
-                    android:fontFamily="@font/anonymous_pro"
-
                     android:inputType="textPassword"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
@@ -176,7 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:fontFamily="@font/anonymous_pro_bold"
+                    android:fontFamily="@font/alata"
                     android:padding="5dp"
                     android:text="Sign Up"
                     android:textColor="@color/black"
@@ -193,8 +166,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/back1"
                     android:ems="10"
+                    android:fontFamily="@font/alata"
                     android:hint="Full Name"
-                    android:fontFamily="@font/anonymous_pro"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:textColor="@color/black"

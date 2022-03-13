@@ -4,20 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img2"
     tools:context=".detail_fund">
+
+<!--    val requiredAmount:String?,-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/amount"
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="92dp"
-            android:layout_marginTop="332dp"
-            android:text="Amount"
-            android:textColor="@color/black"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="16dp"
+            android:text="Event Details"
+            android:textColor="@color/white"
+            android:textSize="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,31 +30,112 @@
             android:id="@+id/donate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:text="Pay"
+            android:layout_marginTop="28dp"
+            android:text="Donate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/amount" />
+            app:layout_constraintTop_toBottomOf="@+id/fEventDesc" />
 
-        <EditText
-            android:id="@+id/donationAmount"
+        <TextView
+            android:id="@+id/fRequiredAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="320dp"
-            android:hint="Enter Amount to be paid"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.161"
-            app:layout_constraintStart_toEndOf="@+id/amount"
-            app:layout_constraintTop_toTopOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/back1"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/fEventDate"
+            app:layout_constraintTop_toTopOf="@+id/fEventDate" />
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_gravity="start"
-        app:menu="@menu/left_nav"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/fEventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="Event Name"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/fEventDesc"
+            android:layout_width="275dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/back1"
+            android:hint="Description"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/fEventDeadline"
+            app:layout_constraintTop_toBottomOf="@+id/fEventDeadline" />
+
+        <TextView
+            android:id="@+id/fEventLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/back1"
+            android:hint="Location"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/fEventType"
+            app:layout_constraintTop_toBottomOf="@+id/fEventType" />
+
+        <TextView
+            android:padding="5dp"
+            android:background="@drawable/back1"
+            android:id="@+id/fEventType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Type of event"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/fEventName"
+            app:layout_constraintTop_toBottomOf="@+id/fEventName" />
+
+        <TextView
+            android:id="@+id/fEventDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/back1"
+            android:hint="Date"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/fEventLoc"
+            app:layout_constraintTop_toBottomOf="@+id/fEventLoc" />
+
+        <TextView
+            android:id="@+id/fEventDeadline"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Deadline"
+            android:padding="5dp"
+            android:background="@drawable/back1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/fEventDate"
+            app:layout_constraintTop_toBottomOf="@+id/fEventDate" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

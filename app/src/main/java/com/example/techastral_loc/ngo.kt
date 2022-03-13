@@ -15,6 +15,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.techastral_loc.databinding.ActivityNgoBinding
 import com.example.techastral_loc.databinding.ActivityVolunteringBinding
 import com.google.android.material.navigation.NavigationView
 import retrofit2.Call
@@ -23,29 +24,28 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Voluntering : AppCompatActivity() {
-
+class ngo : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawer: DrawerLayout
     private lateinit var toolbar: Toolbar
     lateinit var nav: NavigationView
-    lateinit var binding:ActivityVolunteringBinding
-    lateinit var data:ArrayList<dataItem2>
+    lateinit var binding: ActivityNgoBinding
+    lateinit var data:ArrayList<dataNgo>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityVolunteringBinding.inflate(layoutInflater)
+        binding = ActivityNgoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         var pref = applicationContext.getSharedPreferences("MyPref", MODE_PRIVATE)
         var editor: SharedPreferences.Editor = pref.edit()
 
-        val rv = binding.rvVolunter
+        val rv = binding.rvNgo
         rv.apply {
-            layoutManager = LinearLayoutManager(this@Voluntering)
+            layoutManager = LinearLayoutManager(this@ngo)
         }
 
-        nav = binding.volunterNav
+        nav = binding.ngoNav
 
         val header = nav.getHeaderView(0)
 
@@ -55,14 +55,14 @@ class Voluntering : AppCompatActivity() {
         val username = header.findViewById<TextView>(R.id.headerUserName)
 
 
-        name.text = pref.getString("email",null).toString()
-        username.text = pref.getString("username",null).toString()
+        name.text = pref.getString("email", null).toString()
+        username.text = pref.getString("username", null).toString()
         name.setTextColor(Color.parseColor("#ffffff"))
         username.setTextColor(Color.parseColor("#ffffff"))
 
-        toolbar = binding.volunterToolbar
+        toolbar = binding.ngoToolbar
         setSupportActionBar(toolbar)
-        drawer = binding.volunterDrawer
+        drawer = binding.ngoDrawer
         toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.open, R.string.close)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -78,25 +78,24 @@ class Voluntering : AppCompatActivity() {
             .build()
             .create(RetrofitApi::class.java)
 
-        val request = rf.volunter()
+        val request = rf.ngo()
 
-        request.enqueue(object:Callback<ArrayList<dataItem2>>{
+        request.enqueue(object : Callback<ArrayList<dataNgo>> {
             override fun onResponse(
-                call: Call<ArrayList<dataItem2>>,
-                response: Response<ArrayList<dataItem2>>
+                call: Call<ArrayList<dataNgo>>,
+                response: Response<ArrayList<dataNgo>>
             ) {
-                if(response.code() == 200 || response.code() == 201){
-                    val adapter = response.body()?.let { AdapterVolunter(it,this@Voluntering) }
-                    data = response.body() as ArrayList<dataItem2>
+                if (response.code() == 200 || response.code() == 201) {
+                    val adapter = response.body()?.let { AdapterNgo(it, this@ngo) }
                     rv.adapter = adapter
-                }
-                else{
-                    Log.d("response error",response.message())
+                    data = response.body() as ArrayList<dataNgo>
+                } else {
+                    Log.d("response error", response.message())
                 }
             }
 
-            override fun onFailure(call: Call<ArrayList<dataItem2>>, t: Throwable){
-                Log.d("response failure",t.message.toString())
+            override fun onFailure(call: Call<ArrayList<dataNgo>>, t: Throwable) {
+                Log.d("response failure", t.message.toString())
             }
 
         })
@@ -106,7 +105,9 @@ class Voluntering : AppCompatActivity() {
             drawer.closeDrawer(GravityCompat.START)
             when (it.itemId) {
                 R.id.volunter -> {
-                    drawer.closeDrawer(GravityCompat.START)
+                    val intent = Intent(this, Voluntering::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 R.id.funding -> {
                     val intent = Intent(this, fund::class.java)
@@ -114,9 +115,7 @@ class Voluntering : AppCompatActivity() {
                     finish()
                 }
                 R.id.ngo -> {
-                    val intent = Intent(this, ngo::class.java)
-                    startActivity(intent)
-                    finish()
+                    drawer.closeDrawer(GravityCompat.START)
                 }
                 R.id.logout -> {
                     editor.clear()
@@ -145,15 +144,15 @@ class Voluntering : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != "") {
                     val new_data = data.filter { all_users ->
-                        val s = (all_users.type1)!!.lowercase()
+                        val s = (all_users.location)!!.lowercase()
                         s.startsWith(newText!!.lowercase())
                     }
-                    binding.rvVolunter.adapter = AdapterVolunter(new_data as ArrayList<dataItem2>, this@Voluntering)
-                    binding.rvVolunter.adapter?.notifyDataSetChanged()
+                    binding.rvNgo.adapter = AdapterNgo(new_data as ArrayList<dataNgo>, this@ngo)
+                    binding.rvNgo.adapter?.notifyDataSetChanged()
                 }
                 if (newText == "") {
-                    binding.rvVolunter.adapter = AdapterVolunter(data, this@Voluntering)
-                    binding.rvVolunter.adapter?.notifyDataSetChanged()
+                    binding.rvNgo.adapter = AdapterNgo(data, this@ngo)
+                    binding.rvNgo.adapter?.notifyDataSetChanged()
                 }
                 return true
             }

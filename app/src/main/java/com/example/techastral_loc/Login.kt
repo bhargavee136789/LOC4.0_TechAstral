@@ -74,9 +74,9 @@ class Login : AppCompatActivity() {
                     .create(RetrofitApi::class.java)
 
                 val dataLogin = logData(
-                    "",
-                    "",
                     email.text.toString(),
+                    "",
+                    "",
                     password.text.toString(),
 //                    ""
                 )
