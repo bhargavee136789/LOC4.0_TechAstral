@@ -18,9 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class SignUp : AppCompatActivity() {
 
     lateinit var signUp:Button
-    lateinit var fName:EditText
-    lateinit var lName:EditText
-    lateinit var userName:EditText
+    lateinit var fullName:EditText
     lateinit var password:EditText
     lateinit var email:EditText
     lateinit var phone:EditText
@@ -36,7 +34,7 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         signUp = binding.signBtn
-        userName = binding.signFullname
+        fullName = binding.signFullname
         password = binding.signPassword
         email = binding.signEmail
         phone = binding.pNumber
@@ -60,7 +58,7 @@ class SignUp : AppCompatActivity() {
     fun regsiter(){
 //        if(fName.text.toString().isEmpty() || lName.text.toString().isEmpty() || userName.text.toString().isEmpty()
 //            || email.text.toString().isEmpty() || password.text.toString().isEmpty()){
-        if(userName.text.toString().isEmpty() || email.text.toString().isEmpty() || password.text.toString().isEmpty()){
+        if(fullName.text.toString().isEmpty() || email.text.toString().isEmpty() || password.text.toString().isEmpty()){
             Toast.makeText(this,"Please enter data in all fields",Toast.LENGTH_SHORT).show()
         }
         else{
@@ -71,7 +69,7 @@ class SignUp : AppCompatActivity() {
                 .create(RetrofitApi::class.java)
 
             val rData = registerData(
-                userName.text.toString(),
+                fullName.text.toString(),
                 email.text.toString(),
                 phone.text.toString(),
                 password.text.toString(),
@@ -86,27 +84,29 @@ class SignUp : AppCompatActivity() {
                     if(response.code() == 201){
                         Toast.makeText(this@SignUp,"You have been successfully registered",Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@SignUp,Login::class.java)
+                        Log.d("register error",response.message())
                         Toast.makeText(this@SignUp,"Please Login",Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                         finish()
                     }
                     else if(response.code() == 400){
-                        fName.setText("")
-                        lName.setText("")
-                        userName.setText("")
+                        fullName.setText("")
                         email.setText("")
                         phone.setText("")
                         password.setText("")
+                        area.setText("")
+                        pincode.setText("")
+                        Log.d("regisster error",response.message().toString())
                         Toast.makeText(this@SignUp,"Username or email is already registered",Toast.LENGTH_SHORT).show()
                     }
                     else{
                         Log.d("regsiter error",response.message().toString())
-                        fName.setText("")
-                        lName.setText("")
-                        userName.setText("")
+                        fullName.setText("")
                         email.setText("")
                         phone.setText("")
                         password.setText("")
+                        area.setText("")
+                        pincode.setText("")
                         Toast.makeText(this@SignUp,"Some error occurred please try again",Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -122,7 +122,7 @@ class SignUp : AppCompatActivity() {
         super.onSaveInstanceState(outState, outPersistentState)
         outState.putString("signEmail",binding.signEmail.text.toString())
         outState.putString("signPassword",binding.signPassword.text.toString())
-        outState.putString("signUsername",binding.signFullname.text.toString())
+        outState.putString("signFullName",binding.signFullname.text.toString())
         outState.putString("pNumber",binding.pNumber.text.toString())
         outState.putString("pincode",binding.pincode.text.toString())
         outState.putString("area",binding.area.text.toString())

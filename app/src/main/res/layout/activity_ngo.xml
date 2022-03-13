@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/volunterDrawer"
     android:background="@drawable/img3"
-    tools:context=".Voluntering">
+    android:id="@+id/ngoDrawer"
+    tools:context=".ngo">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/volunterAppBar"
+            android:id="@+id/ngoAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentStart="true"
@@ -23,9 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/volunterToolbar"
+                android:id="@+id/ngoToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
 
@@ -40,13 +39,13 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:text="Volunteer"
+                        android:text="Ngo's"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="30dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.39"
+                        app:layout_constraintHorizontal_bias="0.434"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,24 +56,26 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNgo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rvVolunter"
-            tools:listitem="@layout/card_event"
-            tools:itemCount="10"
-            android:layout_below="@+id/volunterAppBar"
+            android:layout_below="@+id/ngoAppBar"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp" />
+            android:layout_marginEnd="0dp"
+            tools:itemCount="10"
+            tools:listitem="@layout/card_event" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/volunterNav"
         app:menu="@menu/left_nav"
+        android:id="@+id/ngoNav"
         app:headerLayout="@layout/header_layout"
         android:layout_gravity="start"/>
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

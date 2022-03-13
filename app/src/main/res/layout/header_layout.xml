@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/headerName"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/headerImg"
         android:layout_alignStart="@+id/headerImg"
@@ -25,7 +25,7 @@
         android:layout_marginTop="15dp"
         android:hint="Hello world"
         android:textColorHint="@color/white"
-        android:textSize="24dp" />
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/headerUserName"

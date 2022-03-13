@@ -2,15 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/profile"
-            android:icon="@drawable/ic_account"
-            android:title="Profile"/>
-        <item
             android:id="@+id/volunter"
-            android:title="Voluntering Event"/>
+            android:title="Voluntering Events"/>
         <item
             android:id="@+id/funding"
-            android:title="Crowd Funding Event"/>
+            android:title="Crowd Funding Events"/>
+        <item
+            android:id="@+id/ngo"
+            android:title="NGO's"/>
         <item
             android:id="@+id/logout"
             android:title="Logout"/>

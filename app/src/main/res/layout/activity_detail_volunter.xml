@@ -4,8 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img2"
     tools:context=".detail_volunter">
 
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="0dp">-->
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="16dp"
+        android:text="Event Details"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/vEventName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="Event Name"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/vEventDesc"
+        android:layout_width="275dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/back1"
+        android:hint="Description"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/vEventDeadline"
+        app:layout_constraintTop_toBottomOf="@+id/vEventDeadline" />
+
+    <TextView
+        android:id="@+id/vEventLoc"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back1"
+        android:hint="Location"
+
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/vEventType"
+        app:layout_constraintTop_toBottomOf="@+id/vEventType" />
+
+    <TextView
+        android:id="@+id/vEventType"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back1"
+        android:hint="Type of event"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/vEventName"
+        app:layout_constraintTop_toBottomOf="@+id/vEventName" />
+
+    <TextView
+        android:id="@+id/vEventDate"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/back1"
+        android:hint="Date"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/vEventLoc"
+        app:layout_constraintTop_toBottomOf="@+id/vEventLoc" />
+
+    <TextView
+        android:id="@+id/vEventPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:background="@drawable/back1"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintStart_toEndOf="@+id/vEventDate"
+        app:layout_constraintTop_toTopOf="@+id/vEventDate" />
+
+    <TextView
+        android:id="@+id/vEventDeadline"
+        android:layout_width="150dp"
+        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back1"
+        android:hint="deadline"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/vEventDate"
+        app:layout_constraintTop_toBottomOf="@+id/vEventDate" />
+
+    <Button
+        android:id="@+id/volunteerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="60dp"
+        android:text="Volunteer"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="@+id/vEventDesc"
+        app:layout_constraintTop_toBottomOf="@+id/vEventDesc" />
 </androidx.constraintlayout.widget.ConstraintLayout>
