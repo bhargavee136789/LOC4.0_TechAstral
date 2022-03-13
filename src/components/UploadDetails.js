@@ -147,12 +147,15 @@ const UploadDetails = () => {
             </div>
           </div>
           <div className=" flex justify-center items-center p-10 m-5">
-            <button
-              className=" text-2xl rounded-lg mr-24 hover:bg-blue-600 p-2 hover:text-white"
-              onClick={integrate}
-            >
-              Submit
-            </button>
+            <Link to="/add">
+              <button
+                className=" text-2xl rounded-lg mr-24 hover:bg-blue-600 p-2 hover:text-white"
+                onClick={integrate}
+              >
+                Submit
+              </button>
+            </Link>
+
             <Link to="/after-login">
               <button className=" text-2xl rounded-lg hover:bg-blue-600 p-2 hover:text-white">
                 Home

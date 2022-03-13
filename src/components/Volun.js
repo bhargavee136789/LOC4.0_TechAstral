@@ -9,10 +9,10 @@ const Volun = () => {
   const [got, setGot] = useState("");
 
   useEffect(() => {
-    setEvent("Blood Donation");
+    setEvent("Help Old");
     setDate("2022-03-13");
-    setLoc("400057");
-    setReq("100");
+    setLoc("Mumbai-400057");
+    setReq("1000");
     setGot("50");
   }, []);
   return (
@@ -32,10 +32,10 @@ const Volun = () => {
             </div>
             <div className="flex flex-row justify-between mx-8">
               <div className="mr-4">
-                Number of volunteers required <span>{req}</span>
+                Number of volunteers required: <span>{req}</span>
               </div>
               <div className="...">
-                Number of volunteers that came <span>{got}</span>
+                Number of volunteers that came: <span>{got}</span>
               </div>
             </div>
           </div>
