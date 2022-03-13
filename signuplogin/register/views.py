@@ -166,13 +166,19 @@ class CrowdFundingDetailsView(APIView):
 
 class FundingView(APIView):
     serializer_class = FundingSerializer
-    def post(self, request):
-        Detail_serializer=FundingSerializer(data=request.data)
-        if Detail_serializer.is_valid():
-            Detail_serializer.save()
-            return Response(Detail_serializer.data,status=status.HTTP_201_CREATED)
-        else:
-            return Response(Detail_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    def post(self,request):
+        name=request.POST.get('name')
+        amt=request.POST.get('amt')
+        data=Funding.objects.create(name=name,amt=amt)
+        data.save()
+        return Response({'name':name, 'amt':amt})
+    # def post(self, request):
+    #     Detail_serializer=FundingSerializer(data=request.data)
+    #     if Detail_serializer.is_valid():
+    #         Detail_serializer.save()
+    #         return Response(Detail_serializer.data,status=status.HTTP_201_CREATED)
+    #     else:
+    #         return Response(Detail_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
     # def get(self,request):
     #     d=CrowdFundingDetails.objects.all()  
